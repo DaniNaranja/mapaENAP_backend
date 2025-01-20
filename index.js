@@ -4,6 +4,7 @@ const express = require('express');
 const pool = require('./src/config/postgres'); // Importar la configuración de la base de datos
 const cors = require('cors');
 const cortesRoutes = require('./src/routes/corte.router')
+const permisosRoutes = require('./src/routes/permiso.router')
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 //Rutas
 app.use('/cortes', cortesRoutes);
+app.use('/permisos', permisosRoutes);
 
 
 // Puerto

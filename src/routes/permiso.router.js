@@ -1,4 +1,10 @@
 const express = require('express');
+const { 
+    getPermisos, 
+    createPermiso, 
+    updatePermiso, 
+    deletePermiso 
+  } = require('../controller/permiso.controller');
 
 const router = express.Router();
 
