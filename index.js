@@ -1,12 +1,18 @@
 require('dotenv').config(); // Carga las variables de entorno
 
 const express = require('express');
-const pool = require('./postgres'); // Importar la configuración de la base de datos
+const pool = require('./src/config/postgres'); // Importar la configuración de la base de datos
+const cors = require('cors');
+const cortesRoutes = require('./src/routes/corte.router')
 
 const app = express();
 
 // Middleware para parsear JSON
+app.use(cors());
 app.use(express.json());
+
+//Rutas
+app.use('/cortes', cortesRoutes);
 
 
 // Puerto
