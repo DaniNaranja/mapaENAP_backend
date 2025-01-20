@@ -5,12 +5,13 @@ const {
     updatePermiso, 
     deletePermiso 
   } = require('../controller/permiso.controller');
+const authenticate = require('../middlewares/authenticathe');
 
 const router = express.Router();
 
-router.get('/', getPermisos);
+router.get('/', authenticate, getPermisos);
 router.post('/', createPermiso);
-router.put('/:id', updatePermiso);
-router.delete('/:id', deletePermiso);
+router.put('/:id', authenticate, updatePermiso);
+router.delete('/:id', authenticate, deletePermiso);
 
 module.exports = router;
