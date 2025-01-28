@@ -15,7 +15,7 @@ const app = express();
 // Middleware para parsear JSON
 app.use(cors({
   origin: 'http://localhost:8080', // Permitir solo solicitudes de esta URL
-  methods: ['GET', 'POST'],       // Métodos permitidos
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],       // Métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'] // Encabezados permitidos
 }));
 app.use(express.json());

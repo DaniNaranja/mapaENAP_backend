@@ -18,12 +18,12 @@ const getCortes = async (req, res) => {
   };
 
 const createCorte = async (req, res) => {
-  const { calle, latitud, longitud, estado, inicio, termino, motivo } =
+  const { calle, latitud, longitud, tipo, inicio, termino, motivo } =
     req.body;
   try {
     const result = await pool.query(
-      "INSERT INTO cortes (calle, latitud, longitud, estado, inicio, termino, motivo) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [calle, latitud, longitud, estado, inicio, termino, motivo]
+      "INSERT INTO cortes (calle, latitud, longitud, tipo, inicio, termino, motivo) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [calle, latitud, longitud, tipo, inicio, termino, motivo]
     );
     res.status(201).json(result.rows[0]);
   } catch (error) {
@@ -34,11 +34,11 @@ const createCorte = async (req, res) => {
 
 const updateCorte = async (req, res) => {
     const { id } = req.params;
-    const { calle, latitud, longitud, estado, inicio, termino, motivo }= req.body;
+    const { calle, latitud, longitud, tipo, inicio, termino, motivo }= req.body;
     try {
         const result = await pool.query(
-            'UPDATE cortes SET calle = $1, latitud = $2, longitud = $3, estado = $4, inicio = $5, termino = $6, motivo = $7 WHERE id= $8',
-            [calle, latitud, longitud, estado, inicio, termino, motivo, id]
+            'UPDATE cortes SET calle = $1, latitud = $2, longitud = $3, tipo = $4, inicio = $5, termino = $6, motivo = $7 WHERE id= $8',
+            [calle, latitud, longitud, tipo, inicio, termino, motivo, id]
         );
         if (result.rowCount === 0) {
             return res.status(404).json({error: 'Corte no encontrado'});
