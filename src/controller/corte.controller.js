@@ -3,6 +3,8 @@ const pool = require("../config/postgres");
 const getCortes = async (req, res) => {
     try {
       const result = await pool.query("SELECT * FROM cortes");
+
+      
       
       // Verificar si no hay cortes
       if (result.rows.length === 0) {
