@@ -32,6 +32,7 @@ const createPermiso = async (req, res) => {
         'naranjafuneke@gmail.com', //Buscar correo area distribucion emergencias
         'Nuevo permiso registrado',
         `<p>Se ha creado un nuevo permiso por ${solicitante}.</p>
+        <p><strong>Calle:</strong> ${calle}</p>
         <p><strong>Tipo:</strong> ${tipo}</p>
         <p><strong>Motivo:</strong> ${motivo}</p>`
       );
