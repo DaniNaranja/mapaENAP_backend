@@ -31,7 +31,8 @@ const createPermiso = async (req, res) => {
       await enviarCorreo(
         'naranjafuneke@gmail.com', //Buscar correo area distribucion emergencias
         'Nuevo permiso registrado',
-        `<p>Se ha creado un nuevo permiso por ${solicitante}.</p>
+        `<img src="https://iili.io/2tXgM7V.png" style="width: 200px;"/>
+        <p>Se ha creado un nuevo permiso por ${solicitante}.</p>
         <p><strong>Calle:</strong> ${calle}</p>
         <p><strong>Tipo:</strong> ${tipo}</p>
         <p><strong>Motivo:</strong> ${motivo}</p>`
