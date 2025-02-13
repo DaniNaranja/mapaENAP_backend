@@ -8,6 +8,8 @@ const cors = require('cors');
 const cortesRoutes = require('./src/routes/corte.router');
 const permisosRoutes = require('./src/routes/permiso.router');
 const loginRoutes = require('./src/routes/login.router');
+const usosGrifosRoutes = require('./src/routes/usoGrifo.router')
+const permisosGrifosRoutes = require ('./src/routes/permisoGrifo.router')
 const { crearUsuarioAdmin } = require('./src/utils/users');  // Importar la función
 
 const app = express();
@@ -27,6 +29,8 @@ app.use(express.json());
 app.use('/login', loginRoutes)
 app.use('/cortes', cortesRoutes);
 app.use('/permisos', permisosRoutes);
+app.use('/usosGrifos', usosGrifosRoutes);
+app.use('/permisosGrifos', permisosGrifosRoutes);
 
 // Puerto
 const PORT = process.env.PORT || 3002;
